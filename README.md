@@ -8,6 +8,4 @@ Class Potential contains most commonly used signals in Photonics ("Potential.h")
 Boffeta-Osborne method is used to find continouos spectrum a signal ("BOsborne.h"). 
 To find discrete spectrum, new hybrid method of contour integration is used ("HybridContourIntegration.h").
 
-For inverse INFT two different approaches are used: 
-          1) Inner bordering algorithm (TIB) ("InnerBordering.h"),
-          2) Algorithm which is based on transition to differential equations ("DifferentialEquationsINFT.h").
+For inverse INFT two different approaches are used: inner bordering algorithm (TIB) ("InnerBordering.h"), algorithm which is based on transition to differential equations ("DifferentialEquationsINFT.h").
