@@ -1,8 +1,8 @@
 # NFT
 Direct and inverse nonlinear Fourier transform (NFT)
 
-This program performs Nonlinear Fourier Transfrom with an optical signal or potential 
-through solving direct and inverse Zaharov-Shabat problems.
+This program performs Nonlinear Fourier Transfrom with an optical signal or potential through solving direct and inverse Zaharov-Shabat problems.
+
 Class Potential contains most commonly used signals in Photonics ("Potential.h"):
           1) Satsuma-Yajima,
           2) Rectangular,
