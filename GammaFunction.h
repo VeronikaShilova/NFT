@@ -2,6 +2,9 @@
 
 #include "ProgramParams.h"
 
+//This code is taken from library: GNU Scientific Library
+//This implements Stirling's approximation and Spouge's approximation.
+
 complex<double> gamma(complex<double> z, int OPT) {
   complex<double> g, z0, z1;
   double x0, q1, q2, x, y, th, th1, th2, g0, gr, gi, gr1, gi1;
