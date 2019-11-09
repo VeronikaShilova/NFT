@@ -161,7 +161,7 @@ public:
   complex<double> q(double t) const override {
     for (int k = 1; k <= numberOfSolitions_; k++) {
       if (t < k * solitonLength_) {
-        return complex<double>(exp(-i * (t - k * solitonLength_ * 0.5)) / cosh(t - k * solitonLength_ * 0.5));
+        return complex<double>(exp(-i * (t - (k - 0.5) * solitonLength_)) / cosh(t - (k - 0.5) * solitonLength_));
       }
     }
   }
@@ -194,7 +194,7 @@ public:
   vector<complex<double>> get_analytical(const unsigned int N) const override {
     vector<complex<double>> result(N + 1);
     double h = (T2_ - T1_) / N;
-    for (int j = 0; j <= N; j++) {
+    for (int j = 0; j < N; j++) {
       result[j] = q(T1_ + j*h);
     }
     return result;

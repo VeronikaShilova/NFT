@@ -8,11 +8,12 @@ vector<complex<double>> aDL(Potential const & signal, RectangularContour const &
   complex<double> integral(0, 0);
   vector<complex<double>> F(contourPoints), z(contourPoints);
   
-  z = contour.getPoints(contourPoints);
+  //z = contour.getPoints(contourPoints);
 
   for (int m = 0; m < contourPoints; m++) {
     vector<complex<double>> a(2);
-    a = BOsborne(signal, z[m], timePoints);
+    //a = BOsborne(signal, z[m], timePoints);
+    a = BOsborne(signal, contour.z(m), timePoints);
     F[m] = a[0];
   }
    
@@ -28,7 +29,8 @@ vector<complex<double>> aDL(Potential const & signal, RectangularContour const &
 
     for (int k = 0; k < numberOfZeros; k++) {
       for (int m = 1; m < contourPoints; m++) {
-        s[k] += pow(z[m], k + 1)*(1.0 - F[m - 1] / F[m]);
+        //s[k] += pow(z[m], k + 1)*(1.0 - F[m - 1] / F[m]);
+        s[k] += pow(contour.z(m), k + 1) * (1.0 - F[m - 1] / F[m]);
       }
       s[k] = s[k] / (2.0*pi*i);
     }
@@ -42,7 +44,9 @@ vector<complex<double>> aDL(Potential const & signal, RectangularContour const &
       sigma[k] = -sigma[k] / (double)(k + 1);
     }
 
+    Polynom poly(sigma);
     roots = findRoots(numberOfZeros, sigma);
+    //roots = findRoots(poly);
 
     for (int j = 0; j < numberOfZeros; j++) {
       roots[j] = Secant(signal, roots[j], timePoints);
